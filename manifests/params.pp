@@ -13,6 +13,8 @@ class crond::params {
   {
     'redhat':
     {
+      $service_name='crond'
+
       case $::operatingsystemrelease
       {
         /^5.*$/:
@@ -28,6 +30,8 @@ class crond::params {
     }
     'Debian':
     {
+      $service_name='cron'
+
       case $::operatingsystem
       {
         'Ubuntu':
