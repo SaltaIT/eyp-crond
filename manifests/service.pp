@@ -15,7 +15,10 @@ class crond::service inherits crond {
   {
     if($crond::manage_service)
     {
-      #service or exec here
+      service { $crond::params::service_name:
+        ensure  => $crond::service_ensure,
+        enable  => $crond::service_enable,
+      }
     }
   }
 }
