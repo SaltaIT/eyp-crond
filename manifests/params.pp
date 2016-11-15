@@ -5,7 +5,6 @@ class crond::params {
     '/etc/cron.hourly',
     '/etc/cron.weekly',
     '/etc/cron.monthly',
-    '/etc/cron.d',
   ]
 
   $root_cron_dirs = [
