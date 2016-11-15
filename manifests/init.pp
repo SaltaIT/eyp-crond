@@ -9,7 +9,19 @@ class crond(
                             $manage_docker_service = true,
                             $service_ensure        = 'running',
                             $service_enable        = true,
+                            $allowed_users         = undef,
+                            $denied_users          = undef,
                           ) inherits crond::params{
+
+  if($allowed_users!=undef)
+  {
+    validate_array($allowed_users)
+  }
+
+  if($denied_users!=undef)
+  {
+    validate_array($denied_users)
+  }
 
   class { '::crond::install': } ->
   class { '::crond::config': } ~>
