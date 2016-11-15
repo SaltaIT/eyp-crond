@@ -13,6 +13,8 @@ class crond(
                             $denied_users          = undef,
                           ) inherits crond::params{
 
+  validate_re($package_ensure, [ '^present$', '^installed$', '^absent$', '^purged$', '^held$', '^latest$' ], 'Not a supported package_ensure: present/absent/purged/held/latest')
+
   if($allowed_users!=undef)
   {
     validate_array($allowed_users)
