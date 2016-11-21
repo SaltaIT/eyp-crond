@@ -17,11 +17,16 @@ class crond::config inherits crond {
 
   if($crond::allowed_users!=undef)
   {
-    file { '/etc/cron.allow':
+    cnocat { '/etc/cron.allow':
       ensure  => 'present',
       owner   => 'root',
       group   => 'root',
       mode    => '0600',
+    }
+
+    concat::fragment{ '/etc/cron.allow default list':
+      target  => '/etc/cron.allow',
+      order   => '42',
       content => template("${module_name}/cronallow.erb"),
     }
   }
@@ -34,11 +39,16 @@ class crond::config inherits crond {
 
   if($crond::denied_users!=undef)
   {
-    file { '/etc/cron.deny':
+    concat { '/etc/cron.deny':
       ensure  => 'present',
       owner   => 'root',
       group   => 'root',
       mode    => '0600',
+    }
+
+    concat::fragment{ '/etc/cron.deny default list':
+      target  => '/etc/cron.deny',
+      order   => '42',
       content => template("${module_name}/crondeny.erb"),
     }
   }

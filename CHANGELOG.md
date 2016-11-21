@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 0.1.4
+
+* added crond::grantuser
+
 ## 0.1.3
 
 * validació package_ensure
