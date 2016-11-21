@@ -17,7 +17,7 @@ class crond::config inherits crond {
 
   if($crond::allowed_users!=undef)
   {
-    cnocat { '/etc/cron.allow':
+    concat { '/etc/cron.allow':
       ensure  => 'present',
       owner   => 'root',
       group   => 'root',
