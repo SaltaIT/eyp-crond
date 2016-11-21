@@ -47,7 +47,9 @@ class crond::config inherits crond {
     }
 
     concat::fragment{ '/etc/cron.deny default list':
-litn
+      target  => '/etc/cron.deny',
+      order   => '42',
+      content => template("${module_name}/crondeny.erb"),
     }
   }
   else
