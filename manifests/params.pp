@@ -24,7 +24,7 @@ class crond::params {
         {
           $package_name='vixie-cron'
         }
-        /^[67].*$/:
+        /^[6-8].*$/:
         {
           $package_name='cronie'
         }
@@ -41,7 +41,7 @@ class crond::params {
         {
           case $::operatingsystemrelease
           {
-            /^14.*$/:
+            /^1[468].*$/:
             {
               $package_name='cron'
             }
