@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.1.7
+
+* added RHEL 8 support
+* added Ubuntu 16.04 support
+* added Ubuntu 18.04 support
+
 ## 0.1.6
 
 * added /etc/cron.daily to puppet management

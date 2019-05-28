@@ -1,4 +1,3 @@
-#
 class crond::config inherits crond {
 
   file { $crond::params::root_cron_files:

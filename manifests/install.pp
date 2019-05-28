@@ -1,7 +1,3 @@
-# == Class: crond
-#
-# === crond::install documentation
-#
 class crond::install inherits crond {
 
   if($crond::manage_package)
