@@ -9,16 +9,6 @@ class crond (
               $denied_users          = undef,
             ) inherits crond::params{
 
-  if($allowed_users!=undef)
-  {
-    validate_array($allowed_users)
-  }
-
-  if($denied_users!=undef)
-  {
-    validate_array($denied_users)
-  }
-
   class { '::crond::install': } ->
   class { '::crond::config': } ~>
   class { '::crond::service': } ->
