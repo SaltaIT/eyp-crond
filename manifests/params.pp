@@ -34,6 +34,7 @@ class crond::params {
     'Debian':
     {
       $service_name='cron'
+      $package_name='cron'
 
       case $::operatingsystem
       {
@@ -43,12 +44,21 @@ class crond::params {
           {
             /^1[468].*$/:
             {
-              $package_name='cron'
+
             }
             default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
           }
         }
-        'Debian': { fail('Unsupported')  }
+        'Debian':
+        {
+          case $::operatingsystemrelease
+          {
+            /^10\..*$/:
+            {
+            }
+            default: { fail("Unsupported Ubuntu version! - ${::operatingsystemrelease}")  }
+          }
+        }
         default: { fail('Unsupported Debian flavour!')  }
       }
     }
